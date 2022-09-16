@@ -1,15 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
-import Client from './components/Client';
+import Client from "./components/Client";
+import "./App.css";
 
 function App() {
-  return (
-    <div className='App'>
-      
-      <Client></Client>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Client></Client>
+		</div>
+	);
 }
 
 export default App;
