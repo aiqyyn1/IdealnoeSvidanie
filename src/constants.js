@@ -1,1 +1,5 @@
-export const CITIES = ["Almaty", "Astana", "Shymkent"];
+export const CITIES = [
+	{ label: "Алматы", value: "almaty" },
+	{ label: "Астана", value: "astana" },
+	{ label: "Шымкент", value: "shymkent" },
+];

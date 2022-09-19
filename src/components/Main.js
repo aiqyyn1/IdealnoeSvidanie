@@ -1,8 +1,8 @@
+import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { CITIES } from "../constants";
 import placesList from "../places-list.json";
-import { Select } from "./common/select";
-import { citiesToMuiFormat } from "../utils";
+import { SelectComponent } from "./common/select";
 
 export default function () {
 	// const [input, setInput] = useState(null);
@@ -12,7 +12,12 @@ export default function () {
 	// const [input1length, setInput1length] = useState(0);
 	// const [true1, setTrue] = useState(false);
 
-	const [city, setCity] = useState({ label: "", value: null });
+	const [city, setCity] = useState();
+
+	const handleCity = (event) => {
+		const { value } = event.target;
+		setCity(value);
+	};
 
 	// const handlelocale = (event) => {
 	// 	setInput(event.target.value);
@@ -23,9 +28,6 @@ export default function () {
 	// 	setInput1length(event.target.value.length);
 	// };
 
-	// console.log(
-	// 	"https://restolife.kz/upload/information_system_6/8/7/8/item_8786/information_items_property_7525.jpg"
-	// );
 	// useEffect(() => {
 	// const getData = async () => {
 	// 	const data = await fetch("http://localhost:3000/place-list");
@@ -40,30 +42,40 @@ export default function () {
 	// const truebol = (event) => {
 	// 	setTrue(!true1);
 	// };
-
+	console.log(city);
 	return (
-		<div>
-			<div>
-				<h1>Идеальное Свидание</h1>
-			</div>
-			<Select options={citiesToMuiFormat(CITIES)} />
-			<div className="client">
-				<input
-					// onChange={(e) => handlelocale(e)}
-					placeholder="от"
-					className="ot"
-				></input>
+		<Box>
+			<Box component="h1">Идеальное Свидание</Box>
+			<Box
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				flexDirection="column"
+			>
+				<Box width="300px">
+					<SelectComponent
+						isFullWidth
+						label="Выберите ваш город"
+						options={CITIES}
+						value={city}
+						onChange={handleCity}
+					/>
+				</Box>
+				<Box display="flex" justifyContent="center" margin="10px">
+					<input
+						// onChange={(e) => handlelocale(e)}
+						placeholder="от"
+					></input>
 
-				<input
-					// onChange={(e) => handleLocale1(e)}
-					placeholder="до"
-					className="do"
-				></input>
-				{/* <button onClick={truebol}>ok</button> */}
-			</div>
+					<input
+						// onChange={(e) => handleLocale1(e)}
+						placeholder="до"
+					></input>
+				</Box>
+			</Box>
 
-			<div className="dex">
-				{/* {true1 &&
+			{/* <div className="dex"> */}
+			{/* {true1 &&
 					client
 						.filter((k) => parseInt(k.ot) < parseInt(input1))
 						// if (k.ot.length < inputlength && k.do.length < input1length) {
@@ -79,7 +91,7 @@ export default function () {
 							);
 						})} */}
 
-				{/* {true1 &&
+			{/* {true1 &&
           client
             .filter((k) => {
               // if (k.ot.length < inputlength && k.do.length < input1length) {
@@ -96,7 +108,7 @@ export default function () {
                 </div>
               );
             })} */}
-			</div>
-		</div>
+			{/* </div> */}
+		</Box>
 	);
 }

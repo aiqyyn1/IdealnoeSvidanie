@@ -1,16 +1,24 @@
 import React from "react";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
-export const Select = ({ value = null, onChange, options = [], label }) => {
+export const SelectComponent = ({
+	onChange,
+	value = "",
+	label = "",
+	options = [],
+	isFullWidth = false,
+}) => {
 	return (
-		<Autocomplete
-			value={value}
-			onChange={onChange}
-			disablePortal
-			options={options}
-			sx={{ width: 300 }}
-			renderInput={(params) => <TextField {...params} label={label} />}
-		/>
+		<FormControl fullWidth={isFullWidth}>
+			<InputLabel>{label}</InputLabel>
+			<Select value={value} label={label} onChange={onChange}>
+				{options.map((option) => (
+					<MenuItem key={option.value} value={option.value}>
+						{option.label}
+					</MenuItem>
+				))}
+			</Select>
+		</FormControl>
 	);
 };
