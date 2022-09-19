@@ -1,8 +1,8 @@
-import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { CITIES } from "../constants";
-import placesList from "../places-list.json";
-import { SelectComponent } from "./common/select";
+import { Box } from "@mui/material";
+import { SelectComponent } from "../../components/common/select";
+import { CITIES } from "../../constants";
+import placesList from "../../places-list.json";
 
 export default function () {
 	// const [input, setInput] = useState(null);
