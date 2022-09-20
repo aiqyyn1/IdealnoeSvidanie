@@ -1,0 +1,24 @@
+.client {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+}
+.ot {
+  margin-right: 5px;
+  height: 20px;
+}
+.do {
+  margin-left: 5px;
+  height: 20px;
+}
+.dex {
+  display: flex;
+  margin: 20px;
+}
+.dox {
+  margin-right: 20px;
+}
+.foto {
+  width: 200px;
+  height: 200px;
+}
