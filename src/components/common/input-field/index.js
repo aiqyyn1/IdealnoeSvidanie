@@ -17,7 +17,7 @@ export default function InputField({
 					type="text"
 					name={name}
 					id={name}
-					className="block w-full rounded-md border-gray-300 pl-5 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+					className="block w-full rounded-md border-gray-300 pl-5 pr-12 focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
 					placeholder={placeholder}
 				/>
 				{isCurrency && (

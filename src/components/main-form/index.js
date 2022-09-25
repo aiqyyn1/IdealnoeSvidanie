@@ -12,15 +12,15 @@ export default function MainForm() {
 				<div className="text-lg font-semibold">{strings.TITLE}</div>
 				<div className="text-xs mt-2">{strings.SUB_TITLE}</div>
 
-				<div className="mt-5">
+				<div className="w-2/3 mt-5">
 					<Select options={CITIES} />
 				</div>
-				<div className="mt-5">
+				<div className="w-2/3 mt-5">
 					<InputField label="Возраст" placeholder="0" />
 				</div>
 
 				<div className="text-sm font-semibold mt-5">{strings.BUDGET_TITLE}</div>
-				<div className="flex items-center justify-between mt-5 gap-5">
+				<div className="flex items-center mt-5 gap-5">
 					<div>
 						<InputField label={strings.PRICE_FROM} placeholder="0" isCurrency />
 					</div>
@@ -29,7 +29,13 @@ export default function MainForm() {
 					</div>
 				</div>
 				<div className="w-1/5 mt-5">
-					<Button title={strings.SEARCH} />
+					<Button
+						title={strings.SEARCH}
+						bgColor="bg-orange-500"
+						hover="hover:bg-orange-600"
+						paddingX="px-10"
+						paddingY="py-2"
+					/>
 				</div>
 			</div>
 		</div>

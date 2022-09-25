@@ -1,9 +1,18 @@
 import React from "react";
 
-export default function Button({ title = "" }) {
+export default function Button({
+	title = "",
+	bgColor = "",
+	bgGradient = "",
+	hover = "",
+	paddingY = "",
+	paddingX = "",
+}) {
 	return (
-		<div className="rounded-md shadow">
-			<div className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-1 text-base font-medium text-white cursor-pointer hover:bg-indigo-700 md:px-10 md:text-lg">
+		<div className="rounded-2xl shadow">
+			<div
+				className={`flex w-full items-center justify-center rounded-2xl border-transparent ${bgColor} ${bgGradient} ${paddingY} ${paddingX} text-sm font-medium text-white cursor-pointer ${hover}`}
+			>
 				{title}
 			</div>
 		</div>

@@ -15,7 +15,7 @@ export default function Select({ options = [] }) {
 						{strings.CHOOSE_CITY}
 					</Listbox.Label>
 					<div className="relative mt-1">
-						<Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+						<Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 sm:text-sm">
 							<span className="flex items-center">
 								<span className="ml-3 block truncate">{selected.label}</span>
 							</span>
@@ -40,7 +40,7 @@ export default function Select({ options = [] }) {
 										key={option.value}
 										className={({ active }) =>
 											classNames(
-												active ? "text-white bg-indigo-600" : "text-gray-900",
+												active ? "text-white bg-orange-500" : "text-gray-900",
 												"relative cursor-default select-none py-2 pl-3 pr-9"
 											)
 										}
@@ -62,7 +62,7 @@ export default function Select({ options = [] }) {
 												{selected ? (
 													<span
 														className={classNames(
-															active ? "text-white" : "text-indigo-600",
+															active ? "text-white" : "text-orange-500",
 															"absolute inset-y-0 right-0 flex items-center pr-4"
 														)}
 													>
