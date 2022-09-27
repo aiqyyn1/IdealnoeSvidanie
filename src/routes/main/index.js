@@ -14,9 +14,9 @@ export default function Main() {
 	return (
 		<div className="font-sans">
 			<div className="h-screen flex">
-				<div className="flex-1 w-1/2">
+				<div className="flex-1 w-1/2 xs:hidden">
 					<img
-						class="h-full w-full object-cover"
+						className="h-full w-full object-cover"
 						src={loversImg}
 						alt="lovers"
 					/>
