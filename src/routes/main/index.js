@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Select from "../../components/common/select";
 import MainForm from "../../components/main-form";
 import { CITIES } from "../../constants";
-import * as Styled from "./styled";
+import loversImg from "../../assets/main.jpeg";
 
 export default function Main() {
 	const [city, setCity] = useState();
@@ -12,15 +12,19 @@ export default function Main() {
 		setCity(value);
 	};
 	return (
-		<div>
-			<Styled.Wrapper>
-				<Styled.ImageWrapper>
-					<Styled.Image />
-				</Styled.ImageWrapper>
-				<div>
+		<div className="font-sans">
+			<div className="h-screen flex">
+				<div className="flex-1 w-1/2 xs:hidden">
+					<img
+						className="h-full w-full object-cover"
+						src={loversImg}
+						alt="lovers"
+					/>
+				</div>
+				<div className="flex-1">
 					<MainForm />
 				</div>
-			</Styled.Wrapper>
+			</div>
 		</div>
 	);
 }
