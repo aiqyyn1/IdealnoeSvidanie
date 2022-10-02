@@ -12,6 +12,7 @@ export default function MainForm() {
 			<div className="flex justify-start items-center mb-14">
 				<Logo width={150} height={150} />
 				<div></div>
+				<div>Aikyn</div>
 			</div>
 			<div className="flex justify-center items-center">
 				<div className="w-4/5">
