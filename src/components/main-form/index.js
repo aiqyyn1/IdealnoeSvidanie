@@ -11,7 +11,7 @@ export default function MainForm() {
 		<div className="w-full h-full flex justify-center items-center flex-col">
 			<div className="flex justify-start items-center mb-14">
 				<Logo width={150} height={150} />
-				<div></div>
+				<div>my merge</div>
 			</div>
 			<div className="flex justify-center items-center">
 				<div className="w-4/5">
