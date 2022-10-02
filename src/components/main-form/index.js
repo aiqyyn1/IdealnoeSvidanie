@@ -13,6 +13,7 @@ export default function MainForm() {
 				<Logo width={150} height={150} />
 				<div></div>
 				<div>Aikyn</div>
+				<div>my merge</div>
 			</div>
 			<div className="flex justify-center items-center">
 				<div className="w-4/5">
