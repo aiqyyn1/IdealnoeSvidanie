@@ -1,16 +1,8 @@
-import React, { useState } from "react";
-import Select from "../../components/common/select";
+import React from "react";
 import MainForm from "../../components/main-form";
-import { CITIES } from "../../constants";
 import loversImg from "../../assets/main.jpeg";
 
 export default function Main() {
-	const [city, setCity] = useState();
-
-	const handleCity = (event) => {
-		const { value } = event.target;
-		setCity(value);
-	};
 	return (
 		<div className="font-sans">
 			<div className="h-screen flex">

@@ -8,3 +8,5 @@ export const PRICE_FROM = "От";
 export const PRICE_TO = "До";
 
 export const SEARCH = "Искать";
+
+export const CHOOSE_CITY = "Выбери свой город";

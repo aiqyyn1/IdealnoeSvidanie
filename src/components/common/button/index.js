@@ -7,9 +7,10 @@ export default function Button({
 	hover = "",
 	paddingY = "",
 	paddingX = "",
+	onClick,
 }) {
 	return (
-		<div className="rounded-2xl shadow">
+		<div className="rounded-2xl shadow" onClick={onClick}>
 			<div
 				className={`flex w-full items-center justify-center rounded-2xl border-transparent ${bgColor} ${bgGradient} ${paddingY} ${paddingX} text-sm font-medium text-white cursor-pointer ${hover}`}
 			>
