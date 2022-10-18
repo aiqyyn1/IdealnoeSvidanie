@@ -1,17 +1,31 @@
 import React from "react";
+import { useNavigate, createSearchParams } from "react-router-dom";
 import Select from "../common/select";
 import InputField from "../common/input-field";
 import Button from "../common/button";
 import Logo from "../icons/logo";
-import { CITIES } from "../../constants";
+import { CITIES, ROUTES } from "../../constants";
 import * as strings from "./strings";
 
 export default function MainForm() {
+	const navigate = useNavigate();
+
+	const handleSearch = () => {
+		navigate({
+			pathname: ROUTES.OPTIONS,
+			search: createSearchParams({
+				city: "almaty",
+				age: 20,
+				from: 10000,
+				to: 15000,
+			}).toString(),
+		});
+	};
+
 	return (
 		<div className="w-full h-full flex justify-center items-center flex-col">
 			<div className="flex justify-start items-center mb-14">
 				<Logo width={150} height={150} />
-				<div>my merge</div>
 			</div>
 			<div className="flex justify-center items-center">
 				<div className="w-4/5">
@@ -19,7 +33,7 @@ export default function MainForm() {
 					<div className="text-xs mt-2">{strings.SUB_TITLE}</div>
 
 					<div className="w-2/3 mt-5 xs:w-full">
-						<Select options={CITIES} />
+						<Select options={CITIES} label={strings.CHOOSE_CITY} />
 					</div>
 					<div className="w-2/3 mt-5 xs:w-full">
 						<InputField label="Возраст" placeholder="0" />
@@ -39,6 +53,7 @@ export default function MainForm() {
 							hover="hover:bg-orange-600"
 							paddingX="px-10"
 							paddingY="py-2"
+							onClick={handleSearch}
 						/>
 					</div>
 				</div>

@@ -1,10 +1,9 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import * as strings from "./strings";
 import { classNames } from "../../../utils";
 
-export default function Select({ options = [] }) {
+export default function Select({ label, options = [] }) {
 	const [selected, setSelected] = useState(options[0] || {});
 
 	return (
@@ -12,7 +11,7 @@ export default function Select({ options = [] }) {
 			{({ open }) => (
 				<>
 					<Listbox.Label className="block text-sm font-medium text-gray-700">
-						{strings.CHOOSE_CITY}
+						{label}
 					</Listbox.Label>
 					<div className="relative mt-1">
 						<Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 sm:text-sm">
