@@ -1,8 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
 import { toValidCost } from "../../utils";
 
 export default function OptionCard({ option }) {
+	const dispatch = useDispatch();
 	return (
 		<div className="shadow-md rounded-2xl h-72">
 			<img
@@ -20,7 +22,9 @@ export default function OptionCard({ option }) {
 							{toValidCost(option.price)} ₸
 						</div>
 					</div>
-					<PlusCircleIcon className="h-10 w-10 cursor-pointer text-orange-400 hover:text-orange-500" />
+					{option.additionalOptions.length > 0 && (
+						<PlusCircleIcon className="h-10 w-10 cursor-pointer text-orange-400 hover:text-orange-500" />
+					)}
 				</div>
 			</div>
 		</div>
