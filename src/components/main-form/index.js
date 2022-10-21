@@ -42,7 +42,7 @@ export default function MainForm() {
 					<div className="text-sm font-semibold mt-5">
 						{strings.BUDGET_TITLE}
 					</div>
-					<div className="flex items-center mt-5 gap-5">
+					<div className="flex items-center mt-5 gap-5 xs:flex-col">
 						<InputField label={strings.PRICE_FROM} placeholder="0" isCurrency />
 						<InputField label={strings.PRICE_TO} placeholder="0" isCurrency />
 					</div>

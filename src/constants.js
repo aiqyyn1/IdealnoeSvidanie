@@ -7,4 +7,5 @@ export const CITIES = [
 export const ROUTES = {
 	MAIN: "/",
 	OPTIONS: "/options",
+	OPTION_DETAIL: "/options/detail/:optionId",
 };
