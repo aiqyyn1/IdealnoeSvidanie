@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
-
 const plans = [
 	{
 		name: "Startup",
@@ -29,7 +28,7 @@ export default function Example() {
 		<div className="w-full px-4 pb-8 pt-4">
 			<div className="mx-auto w-full max-w-md">
 				<RadioGroup value={selected} onChange={setSelected}>
-					<RadioGroup.Label className="text-xl font-semibold">
+					<RadioGroup.Label className="text-lg font-semibold">
 						Сортировка
 					</RadioGroup.Label>
 					<div className="space-y-2 mt-4">
@@ -37,19 +36,25 @@ export default function Example() {
 							<RadioGroup.Option
 								key={plan.name}
 								value={plan}
-								className="bg-white relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none"
+								className={({ active, checked }) =>
+									`
+
+                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
+								}
 							>
+								{/* ${
+										active
+											? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300"
+											: ""
+									} */}
 								{({ active, checked }) => (
 									<>
 										<div className="flex w-full items-center justify-between">
-											<div className="shrink-0 text-white">
-												<CheckIcon className="h-6 w-6" />
-											</div>
 											<div className="flex items-center">
 												<div className="text-sm">
 													<RadioGroup.Label
 														as="p"
-														className={`font-medium  ${
+														className={`font-medium text-gray-900 ${
 															checked ? "text-white" : "text-gray-900"
 														}`}
 													>
@@ -57,9 +62,8 @@ export default function Example() {
 													</RadioGroup.Label>
 												</div>
 											</div>
-											{/* {checked && ( */}
 
-											{/* )} */}
+											<CheckIcon className="h-6 w-6" checked={checked} />
 										</div>
 									</>
 								)}
@@ -73,31 +77,28 @@ export default function Example() {
 }
 
 function CheckIcon(props) {
-	// <svg viewBox="0 0 24 24" fill="none" {...props}>
-	// 	<circle cx={12} cy={12} r={12} fill="#fff" opacity="0.2" />
-	// 	<path
-	// 		d="M7 13l3 3 7-7"
-	// 		stroke="#fff"
-	// 		strokeWidth={1.5}
-	// 		strokeLinecap="round"
-	// 		strokeLinejoin="round"
-	// 	/>
-	// </svg>
 	return (
-		<>
-			<input
-				id="red-radio"
-				type="radio"
-				value=""
-				name="colored-radio"
-				class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+		<svg
+			viewBox="-1 -1 26 25"
+			fill="none"
+			stroke={props.checked ? "#fff" : "#D3D3D3"}
+			strokeWidth={1}
+			{...props}
+		>
+			<circle
+				cx={12}
+				cy={12}
+				r={12}
+				fill={props.checked ? "#f97316" : "#fff"}
+				opacity="1"
 			/>
-			<label
-				for="red-radio"
-				class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-			>
-				Red
-			</label>
-		</>
+			<path
+				d="M7 13l3 3 7-7"
+				stroke="#fff"
+				strokeWidth={1.5}
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
 	);
 }
