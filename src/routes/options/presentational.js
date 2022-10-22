@@ -4,14 +4,19 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import Select from "../../components/common/select";
 import InputField from "../../components/common/input-field";
 import Button from "../../components/common/button";
-import { CITIES, options } from "../../constants";
+import { CITIES, options, SORTING_OPTIONS } from "../../constants";
 import OptionCard from "../../components/option-card";
 import MobileHeader from "../../components/common/mobile-header";
-
-import "react-spring-bottom-sheet/dist/style.css";
 import RadioButtons from "../../components/common/radio-buttons";
 
-export const Options = ({ isOpenSheet, closeBottomSheet }) => {
+import "react-spring-bottom-sheet/dist/style.css";
+
+export const Options = ({
+	isOpenSheet,
+	closeBottomSheet,
+	sortingValue,
+	setSorting,
+}) => {
 	const TITLE = "Список лучших вариантов для вас";
 	const { search } = useLocation();
 	const searchAsObject = Object.fromEntries(new URLSearchParams(search));
@@ -47,7 +52,12 @@ export const Options = ({ isOpenSheet, closeBottomSheet }) => {
 				</div>
 			</div>
 			<BottomSheet open={isOpenSheet} onDismiss={closeBottomSheet}>
-				<RadioButtons />
+				<RadioButtons
+					label="Сортировка"
+					options={SORTING_OPTIONS}
+					selected={sortingValue}
+					setSelected={setSorting}
+				/>
 			</BottomSheet>
 		</div>
 	);

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	sorting: {
-		value: null,
+		value: "cheap",
 		isOpenSheet: false,
 	},
 };

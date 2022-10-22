@@ -58,13 +58,15 @@ export const OptionDetailModal = ({ isOpen = false, option, closeModal }) => {
 										<div className="ml-4">15 000 ₸</div>
 									</div>
 								</div>
-								<div className="text-center font-semibold text-lg mt-8">
-									У тебя хватает деньги чтобы сходить еще в одно место 😉
-								</div>
 								{option?.additionalOptions?.length > 0 && (
-									<div className="my-8">
-										<OptionsCarousel options={option.additionalOptions} />
-									</div>
+									<>
+										<div className="text-center font-semibold text-lg mt-8">
+											У тебя хватает деньги чтобы сходить еще в одно место 😉
+										</div>
+										<div className="my-8">
+											<OptionsCarousel options={option.additionalOptions} />
+										</div>
+									</>
 								)}
 							</Dialog.Panel>
 						</Transition.Child>

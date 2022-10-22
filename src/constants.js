@@ -69,3 +69,14 @@ export const options = [
 		additionalOptions: [],
 	},
 ];
+
+export const SORTING_OPTIONS = [
+	{
+		name: "Сначала дешевые",
+		value: "cheap",
+	},
+	{
+		name: "Сначала дорогие",
+		value: "expensive",
+	},
+];

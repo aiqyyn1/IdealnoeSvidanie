@@ -1,29 +1,12 @@
 import React, { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
-const plans = [
-	{
-		name: "Startup",
-		ram: "12GB",
-		cpus: "6 CPUs",
-		disk: "160 GB SSD disk",
-	},
-	{
-		name: "Business",
-		ram: "16GB",
-		cpus: "8 CPUs",
-		disk: "512 GB SSD disk",
-	},
-	{
-		name: "Enterprise",
-		ram: "32GB",
-		cpus: "12 CPUs",
-		disk: "1024 GB SSD disk",
-	},
-];
 
-export default function Example() {
-	const [selected, setSelected] = useState(plans[0]);
-
+export default function RadioButtons({
+	label = "",
+	options = [],
+	selected,
+	setSelected,
+}) {
 	return (
 		<div className="w-full px-4 pb-8 pt-4">
 			<div className="mx-auto w-full max-w-md">
@@ -32,21 +15,12 @@ export default function Example() {
 						Сортировка
 					</RadioGroup.Label>
 					<div className="space-y-2 mt-4">
-						{plans.map((plan) => (
+						{options.map((option) => (
 							<RadioGroup.Option
-								key={plan.name}
-								value={plan}
-								className={({ active, checked }) =>
-									`
-
-                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
-								}
+								key={option.name}
+								value={option.value}
+								className="relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none"
 							>
-								{/* ${
-										active
-											? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300"
-											: ""
-									} */}
 								{({ active, checked }) => (
 									<>
 										<div className="flex w-full items-center justify-between">
@@ -58,7 +32,7 @@ export default function Example() {
 															checked ? "text-white" : "text-gray-900"
 														}`}
 													>
-														{plan.name}
+														{option.name}
 													</RadioGroup.Label>
 												</div>
 											</div>
