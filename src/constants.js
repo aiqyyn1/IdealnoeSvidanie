@@ -7,9 +7,20 @@ export const CITIES = [
 export const ROUTES = {
 	MAIN: "/",
 	OPTIONS: "/options",
-	OPTION_DETAIL: "/options/detail/:optionId",
 };
 
+export const SORTING_OPTIONS = [
+	{
+		name: "Сначала дешевые",
+		value: "cheap",
+	},
+	{
+		name: "Сначала дорогие",
+		value: "expensive",
+	},
+];
+
+// Below all consts are mock data till BE is ready
 export const options = [
 	{
 		id: 1,
@@ -70,13 +81,40 @@ export const options = [
 	},
 ];
 
-export const SORTING_OPTIONS = [
+export const CATEGORIES = [
 	{
-		name: "Сначала дешевые",
-		value: "cheap",
+		label: "Парки",
+		value: "parks",
+		checked: true,
 	},
 	{
-		name: "Сначала дорогие",
-		value: "expensive",
+		label: "Кафе и рестораны",
+		value: "food",
+		checked: true,
+	},
+	{
+		label: "Кинотеатр",
+		value: "cinema",
+		checked: true,
+	},
+	{
+		label: "Аутсайд",
+		value: "outside",
+		checked: true,
+	},
+	{
+		label: "Гостиницы и отели",
+		value: "hotels",
+		checked: true,
+	},
+	{
+		label: "Бары",
+		value: "bars",
+		checked: true,
+	},
+	{
+		label: "Арт-студии",
+		value: "art-studios",
+		checked: true,
 	},
 ];

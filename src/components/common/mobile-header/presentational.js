@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/20/solid";
 import InputField from "../input-field";
 
-export const Header = ({ openBottomSheet }) => {
+export const Header = ({ openBottomSheet, openFilterBlock }) => {
 	const navigate = useNavigate();
 	const goBack = () => navigate(-1);
 
@@ -25,7 +25,10 @@ export const Header = ({ openBottomSheet }) => {
 				className="w-8 h-7 text-orange-400"
 				onClick={openBottomSheet}
 			/>
-			<AdjustmentsHorizontalIcon className="w-8 h-7 text-orange-400" />
+			<AdjustmentsHorizontalIcon
+				className="w-8 h-7 text-orange-400"
+				onClick={openFilterBlock}
+			/>
 		</div>
 	);
 };

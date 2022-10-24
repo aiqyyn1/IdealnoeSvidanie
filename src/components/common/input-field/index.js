@@ -7,6 +7,8 @@ export default function InputField({
 	isCurrency,
 	isOnlyNumber,
 	bg = "",
+	value,
+	onChange,
 }) {
 	return (
 		<div className="w-full">
@@ -20,6 +22,8 @@ export default function InputField({
 					id={name}
 					className={`block w-full rounded-md border-gray-300 pl-5 pr-12 focus:border-orange-500 focus:ring-orange-500 sm:text-sm ${bg}`}
 					placeholder={placeholder}
+					value={value}
+					onChange={onChange}
 				/>
 				{isCurrency && (
 					<div className="absolute inset-y-0 right-0 flex items-center">

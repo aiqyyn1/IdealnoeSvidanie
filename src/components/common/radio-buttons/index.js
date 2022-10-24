@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { RadioGroup } from "@headlessui/react";
+import CheckIcon from "../../icons/check-icon";
 
 export default function RadioButtons({
 	label = "",
@@ -12,7 +13,7 @@ export default function RadioButtons({
 			<div className="mx-auto w-full max-w-md">
 				<RadioGroup value={selected} onChange={setSelected}>
 					<RadioGroup.Label className="text-lg font-semibold">
-						Сортировка
+						{label}
 					</RadioGroup.Label>
 					<div className="space-y-2 mt-4">
 						{options.map((option) => (
@@ -21,7 +22,7 @@ export default function RadioButtons({
 								value={option.value}
 								className="relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none"
 							>
-								{({ active, checked }) => (
+								{({ _, checked }) => (
 									<>
 										<div className="flex w-full items-center justify-between">
 											<div className="flex items-center">
@@ -47,32 +48,5 @@ export default function RadioButtons({
 				</RadioGroup>
 			</div>
 		</div>
-	);
-}
-
-function CheckIcon(props) {
-	return (
-		<svg
-			viewBox="-1 -1 26 25"
-			fill="none"
-			stroke={props.checked ? "#fff" : "#D3D3D3"}
-			strokeWidth={1}
-			{...props}
-		>
-			<circle
-				cx={12}
-				cy={12}
-				r={12}
-				fill={props.checked ? "#f97316" : "#fff"}
-				opacity="1"
-			/>
-			<path
-				d="M7 13l3 3 7-7"
-				stroke="#fff"
-				strokeWidth={1.5}
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</svg>
 	);
 }

@@ -7,9 +7,11 @@ import { Options as Presentational } from "./presentational";
 
 const mapStateToProps = (state) => {
 	const { isOpenSheet, value } = state.options.sorting;
+	const { isOpenFilter } = state.options.filter;
 	return {
 		isOpenSheet,
 		sortingValue: value,
+		isOpenFilter,
 	};
 };
 

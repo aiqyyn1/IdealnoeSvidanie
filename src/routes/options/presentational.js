@@ -4,10 +4,11 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import Select from "../../components/common/select";
 import InputField from "../../components/common/input-field";
 import Button from "../../components/common/button";
-import { CITIES, options, SORTING_OPTIONS } from "../../constants";
 import OptionCard from "../../components/option-card";
 import MobileHeader from "../../components/common/mobile-header";
 import RadioButtons from "../../components/common/radio-buttons";
+import OptionsFilter from "../../components/options-filter";
+import { CITIES, options, SORTING_OPTIONS } from "../../constants";
 
 import "react-spring-bottom-sheet/dist/style.css";
 
@@ -16,8 +17,8 @@ export const Options = ({
 	closeBottomSheet,
 	sortingValue,
 	setSorting,
+	isOpenFilter,
 }) => {
-	const TITLE = "Список лучших вариантов для вас";
 	const { search } = useLocation();
 	const searchAsObject = Object.fromEntries(new URLSearchParams(search));
 	const city = CITIES.find((city) => city.value === searchAsObject?.city);
@@ -26,7 +27,8 @@ export const Options = ({
 			<MobileHeader />
 			<div className="mx-8 mt-20 mb-6">
 				<div className="text-lg font-medium">
-					{TITLE} <span className="text-orange-500">в {city?.label}</span>
+					Лучшие варианты для свидания{" "}
+					<span className="text-orange-500">в {city?.label}</span>
 				</div>
 				<div className="flex items-center justify-between mt-10 xs:mt-0 xs:flex-col">
 					<div className="w-1/4 xs:w-full xs:order-2 xs:hidden">
@@ -51,6 +53,7 @@ export const Options = ({
 					))}
 				</div>
 			</div>
+			{isOpenFilter && <OptionsFilter />}
 			<BottomSheet open={isOpenSheet} onDismiss={closeBottomSheet}>
 				<RadioButtons
 					label="Сортировка"
