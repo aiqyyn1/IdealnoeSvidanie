@@ -9,7 +9,7 @@ export default function Accordion({ children, title }) {
 					<>
 						<Disclosure.Button
 							className={`flex w-full justify-between bg-white border border-solid border-gray-300 px-4 py-4 text-left text-xl font-medium text-black-500 ${
-								open ? "rounded-t-2xl border-b-0" : "rounded-2xl"
+								open ? "rounded-t-md border-b-0" : "rounded-md"
 							}`}
 						>
 							<span className="font-medium">{title}</span>
@@ -19,7 +19,7 @@ export default function Accordion({ children, title }) {
 								} h-8 w-8 text-orange-500`}
 							/>
 						</Disclosure.Button>
-						<Disclosure.Panel className="absolute z-10 bg-white w-full px-4 py-4 text-gray-600 border border-solid border-gray-200 rounded-b-2xl">
+						<Disclosure.Panel className="absolute z-10 bg-white w-full px-4 py-4 text-gray-600 border border-solid border-gray-200 rounded-b-md">
 							{children}
 						</Disclosure.Panel>
 					</>

@@ -19,41 +19,31 @@ export const OptionsFilter = ({ onClose }) => {
 			</div>
 
 			<div className="p-4 mt-12">
-				<div className="mt-4">
-					<Accordion title="Категории">
-						<CategoriesList />
-					</Accordion>
+				{/* <div className="mt-4">
+					<Accordion title="Категории"> */}
+				<CategoriesList />
+				{/* </Accordion>
 				</div>
 				<div className="mt-8">
 					<Select
 						label="Город"
 						options={CITIES}
-						borderStyle="rounded-2xl"
 						paddingYBtn="py-4"
 						labelSize="text-xl"
 					/>
-				</div>
-				<div className="mt-8 flex items-center gap-4">
-					<InputField
-						isCurrency
-						isOnlyNumber
-						label="От"
-						placeholder="0"
-						fontSize="text-lg"
-					/>
-					<InputField
-						isCurrency
-						isOnlyNumber
-						label="До"
-						placeholder="0"
-						fontSize="text-lg"
-					/>
+				</div> */}
+				<div className="mt-12">
+					<div className="text-lg mb-2 font-medium">Цена</div>
+					<div className="flex items-center gap-4">
+						<InputField isCurrency isOnlyNumber label="От" placeholder="0" />
+						<InputField isCurrency isOnlyNumber label="До" placeholder="0" />
+					</div>
 				</div>
 			</div>
 
 			<div className="fixed bottom-8 w-full w-4/5 left-1/2 -translate-x-1/2">
 				<Button
-					title="Применить"
+					title="Показать результаты"
 					bgColor="bg-orange-500"
 					hover="hover:bg-orange-600"
 					paddingX="px-10"
