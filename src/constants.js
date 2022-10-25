@@ -20,6 +20,12 @@ export const SORTING_OPTIONS = [
 	},
 ];
 
+export const ITEM_FILTER = {
+	default: null,
+	CATEGORIES: "categories",
+	CITY: "city",
+};
+
 // Below all consts are mock data till BE is ready
 export const options = [
 	{

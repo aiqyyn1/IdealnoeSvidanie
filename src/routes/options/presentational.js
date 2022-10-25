@@ -5,7 +5,7 @@ import Select from "../../components/common/select";
 import InputField from "../../components/common/input-field";
 import Button from "../../components/common/button";
 import OptionCard from "../../components/option-card";
-import MobileHeader from "../../components/common/mobile-header";
+import MainHeader from "../../components/common/main-header";
 import RadioButtons from "../../components/common/radio-buttons";
 import OptionsFilter from "../../components/options-filter";
 import { CITIES, options, SORTING_OPTIONS } from "../../constants";
@@ -24,7 +24,7 @@ export const Options = ({
 	const city = CITIES.find((city) => city.value === searchAsObject?.city);
 	return (
 		<div>
-			<MobileHeader />
+			<MainHeader />
 			<div className="mx-8 mt-20 mb-6">
 				<div className="text-lg font-medium">
 					Лучшие варианты для свидания{" "}
