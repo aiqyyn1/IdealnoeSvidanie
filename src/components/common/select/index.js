@@ -3,18 +3,34 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { classNames } from "../../../utils";
 
-export default function Select({ label, options = [] }) {
+export default function Select({
+	label,
+	options = [],
+	borderStyle,
+	paddingYBtn,
+	labelSize,
+}) {
 	const [selected, setSelected] = useState(options[0] || {});
 
 	return (
 		<Listbox value={selected} onChange={setSelected}>
 			{({ open }) => (
 				<>
-					<Listbox.Label className="block text-sm font-medium text-gray-700">
+					<Listbox.Label
+						className={`block ${
+							labelSize || "text-sm"
+						} font-medium text-gray-700`}
+					>
 						{label}
 					</Listbox.Label>
 					<div className="relative mt-1">
-						<Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 sm:text-sm">
+						<Listbox.Button
+							className={`relative w-full cursor-default ${
+								borderStyle || "rounded-md"
+							} border border-gray-300 bg-white ${
+								paddingYBtn || "py-2"
+							} pl-3 pr-10 text-left shadow-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 sm:text-sm`}
+						>
 							<span className="flex items-center">
 								<span className="ml-3 block truncate">{selected.label}</span>
 							</span>
@@ -33,7 +49,11 @@ export default function Select({ label, options = [] }) {
 							leaveFrom="opacity-100"
 							leaveTo="opacity-0"
 						>
-							<Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+							<Listbox.Options
+								className={`absolute z-10 mt-1 max-h-56 w-full overflow-auto ${
+									borderStyle || "rounded-md"
+								} bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm`}
+							>
 								{options.map((option) => (
 									<Listbox.Option
 										key={option.value}

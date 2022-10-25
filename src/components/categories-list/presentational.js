@@ -10,6 +10,18 @@ export const CategoriesList = ({
 		getCategories();
 	}, []);
 
+	const changeChecked = (categories, target) => {
+		return categories.map((category) => {
+			if (category.value === target.value) {
+				return {
+					...category,
+					checked: !category.checked,
+				};
+			}
+			return category;
+		});
+	};
+
 	const handleCheck = (category) => {
 		let newCategories = [...categories];
 		const foundCategory = newCategories.find(
@@ -18,15 +30,7 @@ export const CategoriesList = ({
 		if (!foundCategory) {
 			return;
 		}
-		newCategories = newCategories.map((category) => {
-			if (category.value === foundCategory.value) {
-				return {
-					...category,
-					checked: !category.checked,
-				};
-			}
-			return category;
-		});
+		newCategories = changeChecked(newCategories, foundCategory);
 		setCategories(newCategories);
 	};
 
@@ -35,7 +39,7 @@ export const CategoriesList = ({
 			{categories.map((category, index) => (
 				<div
 					key={index}
-					className="flex items-center justify-between p-2 my-8 first:mt-0"
+					className="flex items-center justify-between p-2 my-4 text-md first:mt-0"
 					onClick={() => handleCheck(category)}
 				>
 					<div>{category.label}</div>

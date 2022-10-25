@@ -7,20 +7,25 @@ export default function InputField({
 	isCurrency,
 	isOnlyNumber,
 	bg = "",
+	padding = "",
+	fontSize = "",
 	value,
 	onChange,
 }) {
 	return (
 		<div className="w-full">
-			<label htmlFor={name} className="block text-sm font-medium text-gray-700">
+			<label
+				htmlFor={name}
+				className={`block ${fontSize || "text-sm"} font-medium text-gray-700`}
+			>
 				{label}
 			</label>
 			<div className="relative mt-1 rounded-md shadow-sm">
 				<input
-					type="text"
+					type={isOnlyNumber ? "number" : "text"}
 					name={name}
 					id={name}
-					className={`block w-full rounded-md border-gray-300 pl-5 pr-12 focus:border-orange-500 focus:ring-orange-500 sm:text-sm ${bg}`}
+					className={`block w-full rounded-md border-gray-300 pl-5 pr-12 focus:border-orange-500 focus:ring-orange-500 text-lg ${bg} ${padding}`}
 					placeholder={placeholder}
 					value={value}
 					onChange={onChange}
