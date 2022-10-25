@@ -19,7 +19,6 @@ export const optionDetailModalSlice = createSlice({
 	},
 });
 
-// Action creators are generated for each case reducer function
 export const { showModal, closeModal } = optionDetailModalSlice.actions;
 
 export default optionDetailModalSlice.reducer;
