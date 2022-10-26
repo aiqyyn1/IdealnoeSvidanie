@@ -11,14 +11,20 @@ export const ROUTES = {
 
 export const SORTING_OPTIONS = [
 	{
-		name: "Сначала дешевые",
+		label: "Сначала дешевые",
 		value: "cheap",
 	},
 	{
-		name: "Сначала дорогие",
+		label: "Сначала дорогие",
 		value: "expensive",
 	},
 ];
+
+export const ITEM_FILTER = {
+	default: null,
+	CATEGORIES: "categories",
+	CITY: "city",
+};
 
 // Below all consts are mock data till BE is ready
 export const options = [

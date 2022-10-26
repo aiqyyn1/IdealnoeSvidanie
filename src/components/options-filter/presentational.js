@@ -1,39 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import Accordion from "../common/accordion";
-import Select from "../common/select";
 import InputField from "../common/input-field";
-import CategoriesList from "../categories-list";
 import Button from "../common/button";
-import { CITIES } from "../../constants";
+import RadioButtons from "../common/radio-buttons";
+import CategoriesList from "./components/categories-list";
+import FilterItemButton from "./components/filter-item-button";
+import FilterItemDetail from "./components/filter-item-detail";
+import { CITIES, ITEM_FILTER } from "../../constants";
+import { FILTER_TITLE, PRICE } from "./strings";
 
 export const OptionsFilter = ({ onClose }) => {
+	const [filterItemOpen, setFilterItemOpen] = useState(ITEM_FILTER.default);
+
+	const handleFilterItem = (value) => {
+		setFilterItemOpen(value);
+	};
+
 	return (
-		<div className="h-screen w-full bg-white fixed top-0 overflow-scroll">
+		<div className="h-screen w-full bg-white fixed top-0">
 			<div className="bg-white fixed top-0 w-full">
 				<XMarkIcon
-					className="w-10 h-10 font-semibold absolute top-4 left-2"
+					className="w-8 h-8 font-semibold absolute top-4 left-2"
 					onClick={onClose}
 				/>
-				<div className="text-2xl font-semibold text-center mt-4">Фильтр</div>
+				<div className="text-xl font-semibold text-center mt-4">
+					{FILTER_TITLE}
+				</div>
 			</div>
 
-			<div className="p-4 mt-12">
-				{/* <div className="mt-4">
-					<Accordion title="Категории"> */}
-				<CategoriesList />
-				{/* </Accordion>
-				</div>
+			<div className="py-4 pl-4 pr-2 mt-12">
+				<FilterItemButton
+					title="Категории"
+					onClick={() => handleFilterItem(ITEM_FILTER.CATEGORIES)}
+				/>
+				<FilterItemButton
+					title="Город"
+					onClick={() => handleFilterItem(ITEM_FILTER.CITY)}
+				/>
+
 				<div className="mt-8">
-					<Select
-						label="Город"
-						options={CITIES}
-						paddingYBtn="py-4"
-						labelSize="text-xl"
-					/>
-				</div> */}
-				<div className="mt-12">
-					<div className="text-lg mb-2 font-medium">Цена</div>
+					<div className="text-lg mb-2 font-medium">{PRICE}</div>
 					<div className="flex items-center gap-4">
 						<InputField isCurrency isOnlyNumber label="От" placeholder="0" />
 						<InputField isCurrency isOnlyNumber label="До" placeholder="0" />
@@ -51,6 +57,28 @@ export const OptionsFilter = ({ onClose }) => {
 					fontSize="text-lg"
 				/>
 			</div>
+			{filterItemOpen === ITEM_FILTER.CATEGORIES && (
+				<FilterItemDetail
+					onClickReady={() => {
+						alert("network request");
+						handleFilterItem(ITEM_FILTER.default);
+					}}
+					goBack={() => handleFilterItem(ITEM_FILTER.default)}
+				>
+					<CategoriesList />
+				</FilterItemDetail>
+			)}
+			{filterItemOpen === ITEM_FILTER.CITY && (
+				<FilterItemDetail
+					onClickReady={() => {
+						alert("network request");
+						handleFilterItem(ITEM_FILTER.default);
+					}}
+					goBack={() => handleFilterItem(ITEM_FILTER.default)}
+				>
+					<RadioButtons options={CITIES} isWithBorder={false} />
+				</FilterItemDetail>
+			)}
 		</div>
 	);
 };

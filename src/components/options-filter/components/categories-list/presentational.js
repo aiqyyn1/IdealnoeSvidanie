@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import CheckIcon from "../icons/check-icon";
+import CheckIcon from "../../../icons/check-icon";
 
 export const CategoriesList = ({
 	categories,

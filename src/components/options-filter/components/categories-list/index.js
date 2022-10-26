@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { setFilterCategoriesList } from "../../features/options/optionsSlice";
-import { getFilterCategories } from "../../features/options/actions";
+import { setFilterCategoriesList } from "../../../../features/options/optionsSlice";
+import { getFilterCategories } from "../../../../features/options/actions";
 import { CategoriesList as Presentational } from "./presentational";
 
 const mapStateToProps = (state) => {
