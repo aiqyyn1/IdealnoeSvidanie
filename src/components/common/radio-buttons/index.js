@@ -7,9 +7,10 @@ export default function RadioButtons({
 	options = [],
 	selected,
 	setSelected,
+	isWithBorder = true,
 }) {
 	return (
-		<div className="w-full px-4 pb-8 pt-4">
+		<div className={`w-full ${isWithBorder && "px-4"} pb-8 pt-4`}>
 			<div className="mx-auto w-full max-w-md">
 				<RadioGroup value={selected} onChange={setSelected}>
 					<RadioGroup.Label className="text-lg font-semibold">
@@ -18,22 +19,24 @@ export default function RadioButtons({
 					<div className="space-y-2 mt-4">
 						{options.map((option) => (
 							<RadioGroup.Option
-								key={option.name}
+								key={option.value}
 								value={option.value}
-								className="relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none"
+								className={`relative flex cursor-pointer rounded-lg ${
+									isWithBorder && "px-5"
+								} py-4 ${isWithBorder && "shadow-md"} focus:outline-none`}
 							>
 								{({ _, checked }) => (
 									<>
 										<div className="flex w-full items-center justify-between">
 											<div className="flex items-center">
-												<div className="text-sm">
+												<div className="text-lg">
 													<RadioGroup.Label
 														as="p"
 														className={`font-medium text-gray-900 ${
 															checked ? "text-white" : "text-gray-900"
 														}`}
 													>
-														{option.name}
+														{option.label}
 													</RadioGroup.Label>
 												</div>
 											</div>

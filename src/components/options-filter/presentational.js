@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import InputField from "../common/input-field";
 import Button from "../common/button";
+import RadioButtons from "../common/radio-buttons";
 import CategoriesList from "./components/categories-list";
 import FilterItemButton from "./components/filter-item-button";
 import FilterItemDetail from "./components/filter-item-detail";
-import { ITEM_FILTER } from "../../constants";
+import { CITIES, ITEM_FILTER } from "../../constants";
 import { FILTER_TITLE, PRICE } from "./strings";
 
 export const OptionsFilter = ({ onClose }) => {
@@ -75,7 +76,7 @@ export const OptionsFilter = ({ onClose }) => {
 					}}
 					goBack={() => handleFilterItem(ITEM_FILTER.default)}
 				>
-					<div>city</div>
+					<RadioButtons options={CITIES} isWithBorder={false} />
 				</FilterItemDetail>
 			)}
 		</div>

@@ -11,11 +11,11 @@ export const ROUTES = {
 
 export const SORTING_OPTIONS = [
 	{
-		name: "Сначала дешевые",
+		label: "Сначала дешевые",
 		value: "cheap",
 	},
 	{
-		name: "Сначала дорогие",
+		label: "Сначала дорогие",
 		value: "expensive",
 	},
 ];
